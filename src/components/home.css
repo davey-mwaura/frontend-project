@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Open+Sans&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0;
+    
+}
+
+.branch, a{
+    position: relative;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    opacity: 70%;
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    transition: all 0.2s ease 0s;
+}
+
+
+.navigate{
+    min-width: 900px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 10%;
+    
+
+}
+
+.logo{
+    cursor: pointer;
+    position: absolute;
+    padding: 0%;
+    margin: 0%;
+    left: 10px;
+    width: 100px;
+    height: 100px;
+}
+
+.nav__links{
+    list-style: none;
+
+}
+
+.nav__links li{
+    display: inline-block;
+    padding: 0px 20px;
+    
+}
+
+.nav__links li a{
+    transition: all 0.3s ease 0s;
+}
+
+.nav__links li::after{
+    content: "";
+    height: 3px;
+    width: 0%;
+    background: #ffcc00 ;
+    display: block;
+    margin: auto;
+    bottom: -5px;
+    position: relative;
+
+    transition: all 0.4s ease 0s;
+}
+
+
+.nav__links li:hover::after{
+    width: 100%;
+    
+
+}
+.nav__links li a:hover{
+    opacity: 100%;
+    font-weight: 500;
+    
+}
+
+.call{
+    padding: 9px 25px;
+    background-color: #ffcc00;
+    border: none;
+    border: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
+    font-family: "Inter", sans-serif;
+    opacity: 100%;
+    font-weight: 400;
+    font-size: 14px;
+    opacity: 100%;
+    text-decoration: none;
+    color: black;
+}
+
+.call:hover{
+    background-color: #e1b506;
+    
+}
+
+
+.textbox{
+    
+    color: black;
+    position: absolute;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    
+}
+
+
+.textbox h1{
+    font-size: 39.2px;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 850px;
+    
+}
+
+.textbox p{
+    margin: 30px 0 40px;
+    font-size: 15px;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    min-width: 750px;
+    
+}
+
+.textbox img{
+    display: flex;
+    height: 230px;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+.plotb{
+    position: absolute;
+    top: 40%;
+    left: 16%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-weight: 600;
+    color: black;
+    text-align: left;
+    padding: 9px 36px;
+    background-color: #e8c964;
+    border: none;
+    opacity: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin-top: 300px;
+}
+
+.plotb:hover{
+    background-color: #e1b506;
+}
+
+.bi{
+    top: 81.9%;
+    position: absolute;
+    left: 31.5%;
+    z-index: 1;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    
+
+}
+
+.pagetwo{
+    position: absolute;
+    font-family: "Inter", sans-serif;
+    margin-top: 100vh;
+}
+
+.footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
