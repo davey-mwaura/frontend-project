@@ -15,16 +15,16 @@ Say goodbye to scattered property records and hello to a centralized database of
 
 ## The Main Components of the Web App
 
-## Home Route
+### Home Route
 Discover the mission and find the customer's dream property with the Home Route - showcasing the dedication to providing high-quality real estate services while highlighting the various options available for land purchase.
 
-## Properties Route
+### Properties Route
 Get a bird's eye view of all properties - showcasing key information such as land size, price, and location for all properties owned by the company. Browse through a diverse range of options and easily find the perfect property for your needs with our user-friendly search bar. And when it's time to sell, simply click the 'sell land' button and watch as the property is seamlessly removed the local api.
 
-## Find Us Route
+### Find Us Route
 Get directions to the office with ease using google maps that guides you to the physical location of the office. 
 No more getting lost trying to find the office, simply use this route to navigate your way to the doorstep of the office.
 
-## Contact us
+### Contact us Route
 Connect with a real estate expert in just one click with the Call Us button - 
 providing you with direct access to the office's phone number for any inquiries or assistance you may need.
