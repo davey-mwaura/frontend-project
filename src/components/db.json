@@ -41,6 +41,13 @@
       "location": "Kisumu",
       "price": "90000",
       "poster": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80"
+    },
+    {
+      "id": "9",
+      "title": "Kilimani",
+      "location": "Kisumu",
+      "price": "700000",
+      "poster": "https://plus.unsplash.com/premium_photo-1673329273026-2199d44d9bf2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
     }
   ]
 }

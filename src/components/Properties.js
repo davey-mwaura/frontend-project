@@ -1,89 +1,114 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchBar from './searchBar';
 import './Properties.css';
 
 export const Properties = () => {
-    const [state, setState] = useState({
-        id: '',
-        title: '',
-        location: '',
-        price: '',
-        poster: ''
-    });
+  const [state, setState] = useState({
+    // id: '',
+    name: '',
+    location: '',
+    value: '',
+    image_url: '',
+    user_id: ''
+  });
 
-    const handleSubmit = e => {
+  const [lands, setLands] = useState([]);
 
-        // e.preventDefault();
-        // Make a POST request to the JSON server here
-        
-        fetch("http://localhost:4000/land", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(state)
-    });
-        
-    };
+  useEffect(() => {
+    fetch("http://127.0.0.1:9292/lands")
+      .then(res => res.json())
+      .then(data => setLands(data))
+      .catch(error => console.log(error));
+  }, []);
 
-    const handleChange = e => {
+  const handleSubmit = e => {
+    // e.preventDefault();
+    
+    fetch("http://127.0.0.1:9292/lands", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(state)
+    })
+      .then(res => res.json())
+      .then(newLand => {
+        setLands([...lands, newLand]);
         setState({
-            ...state,
-            [e.target.name]: e.target.value
+          // id: '',
+          name: '',
+          location: '',
+          value: '',
+          image_url: '',
+          user_id: ''
         });
-    };
+      });
+  };
 
-    return (
-<div>
-<div className="properties">
+  const handleChange = e => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  return (
+    <div>
+      <div className="properties">
         <h1 className="headerland">Real Estate Property Manager</h1>
 
         <form className="firstform" onSubmit={handleSubmit}>
-            <h2 className="info">Enter Information Here</h2>
-            <input
-                type="text"
-                name="title"
-                placeholder="Title"
-                value={state.title}
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                name="id"
-                placeholder="Land Id"
-                value={state.id}
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                name="location"
-                placeholder="Location"
-                value={state.location}
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                name="price"
-                placeholder="Price"
-                value={state.price}
-                onChange={handleChange}
-            />
-            <input
-                type="url"
-                name="poster"
-                placeholder="Image Url"
-                value={state.poster}
-                onChange={handleChange}
-            />
-            <button className ="btn" type="submit">Submit</button>
-
+          <h2 className="info">Enter Information Here</h2>
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            value={state.name}
+            onChange={handleChange}
+          />
+          {/* <input
+            type="text"
+            name="id"
+            placeholder="Land Id"
+            value={state.id}
+            onChange={handleChange}
+          /> */}
+          <input
+            type="text"
+            name="location"
+            placeholder="Location"
+            value={state.location}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="value"
+            placeholder="Value"
+            value={state.value}
+            onChange={handleChange}
+          />
+          <input
+            type="url"
+            name="image_url"
+            placeholder="Image Url"
+            value={state.image_url}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="user_id"
+            placeholder="User Id"
+            value={state.user_id}
+            onChange={handleChange}
+          />
+          
+          <button className="btn" type="submit">Submit</button>
         </form>
 
-        <SearchBar /> 
-        </div>
-
-        </div>
-    );
+        <SearchBar lands={lands} setLands={setLands} />
+      </div>
+    </div>
+  );
 };
 
 export default Properties;

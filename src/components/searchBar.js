@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
-
 export const SearchBar = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [lands, setLands] = useState([]);
     const [searchResults, setSearchResults] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:4000/land")
+        fetch("http://127.0.0.1:9292/lands")
             .then(res => res.json())
             .then(data => setLands(data));
     }, []);
 
     useEffect(() => {
         const results = lands.filter(land =>
-            land.title.toLowerCase().includes(searchTerm.toLowerCase())
+            land.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setSearchResults(results);
     }, [searchTerm, lands]);
@@ -25,7 +24,7 @@ export const SearchBar = () => {
 
     const handleDelete = id => {
         // Delete the land from the json-server
-        fetch(`http://localhost:4000/land/${id}`, {
+        fetch(`http://127.0.0.1:9292/${id}`, {
             method: "DELETE"
         });
         // Remove the deleted land from the state
@@ -38,27 +37,26 @@ export const SearchBar = () => {
             <form>
                 <input
                     type="text"
-                    placeholder="Search by land title"
+                    placeholder="Search by land name"
                     value={searchTerm}
                     onChange={handleChange}
                 />
             </form>
             <div className="showLands">
                 {searchResults.map(land => (
-                    
                     <div key={land.id} className="Card">
                         <ul className="cardlist">
                             <li className="first">ID: {land.id}</li>
-                            <li className="second">Land: {land.title}</li>
+                            <li className="second">Name: {land.name}</li>
                             <li className="third">Location: {land.location}</li>
-                            <li className="fourth">Price: {land.price}</li>
+                            <li className="fourth">Value: {land.value}</li>
+                            <li className="fourth">User Id: {land.user_id}</li>
                         </ul>
-                        <img className="landimage" src={land.poster} alt={land.title} />
+                        <img className="landimage" src={land.image_url} alt={land.name} />
                         <button className="semi" onClick={() => handleDelete(land.id)}>Sell Land</button>
                     </div>
                 ))}
             </div>
-           
         </div>
     );
 };
